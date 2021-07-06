@@ -1,0 +1,25 @@
+import { Routes } from "@angular/router";
+
+import { HomeComponent } from "./home/home.component";
+import { RestaurantesComponent } from "./restaurantes/restaurantes.component";
+import { DiversaoComponent } from "./diversao/diversao.component";
+import { OfertaComponent } from "./oferta/oferta.component";
+
+export const ROUTES: Routes = [
+    {
+        path: '',
+        component: HomeComponent,
+    },
+    {
+        path: 'Restaurantes',
+        component: RestaurantesComponent,
+    },
+    {
+        path: 'Diversao',
+        component: DiversaoComponent,
+    },
+    {
+        path: 'Oferta',
+        component: OfertaComponent
+    }
+]

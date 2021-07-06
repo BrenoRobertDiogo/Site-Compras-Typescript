@@ -3,10 +3,12 @@ import { Oferta } from "./shared/oferta.model";
 import { Http } from "@angular/http";
 import { Injectable } from "@angular/core";
 
+import 'rxjs/add/operator/toPromise';
+
 @Injectable()
 export class OfertasService {
-
-    constructor(private http: Http){}
+    private api: string = 'http://localhost:3000/ofertas';
+    constructor(private http: Http) { }
 
     public ofertas: Array<Oferta> = [
         {
@@ -62,32 +64,16 @@ export class OfertasService {
     /**
      * getOfertas
      */
-    public getOfertas(): Array<Oferta> {
-        return this.ofertas;
+    public getOfertas(): Promise<Oferta[]> {
+        return this.http.get(this.api+'?destaque=true')
+            .toPromise()
+            .then((resposta: any) => resposta.json())
     }
 
-    public getOfertasAsync(): Promise<Oferta[]> {
-        return new Promise((resolve, reject) => {
-            let deuCerto: boolean = true
-            if (deuCerto) {
-                setTimeout(() => resolve(this.ofertas), 3000);
-            } else {
-                reject({ codigoErro: 404, message: 'Servidor não encontrado' });
-            }
-        })
-            .then((ofertas: Oferta[]) => {
-                return new Promise((resolve2, reject2) => {
-                    setTimeout(() => {
-                        resolve2(ofertas)
-                    }, 3000)
-
-                })
-            })
-            .then((ofertas: Oferta[]) => {
-                console.log('Terceiro then depois de 6s, aguardando a promise');
-
-                return ofertas
-            })
+    public getOfertasPorCategoria(categoria: string): Promise<Oferta[]> {
+        return this.http.get(this.api+`?categoria=${categoria}`)
+        .toPromise()
+        .then((resposta: any) => resposta.json())
     }
 
 }
