@@ -1,7 +1,10 @@
 <div class="container">
+  
+
+  
   <div class="oferta" *ngIf="oferta !== undefined">
 
-    <div class="row">
+    <div class="row mt-5 mb-5">
       <div class="col">
         <h4>{{ oferta.descricao_oferta }}</h4>
       </div>
@@ -23,7 +26,7 @@
           <div class="col text-center">
             <p>Por apenas</p>
           </div>
-          
+
         </div>
 
         <div class="row">
@@ -37,10 +40,28 @@
             <button type="button" class="btn btn-warning btn-lg">Adicionar ao carrinho</button>
           </div>
         </div>
-          
+
       </div>
 
     </div>
 
   </div>
+
+
+  <div class="row mb-5 mt-5">
+    <nav>
+    <div class="nav nav-tabs" id="nav-tab" role="tablist">
+      <a routerLink="como-usar" class="nav-link active" data-bs-toggle="tab" data-bs-target="#como-usar" type="button"
+        role="tab" aria-controls="como-usar" aria-selected="true">Como usar</a>
+
+      <a routerLink="onde-fica" class="nav-link" data-bs-toggle="tab" data-bs-target="#onde-fica" type="button"
+        role="tab" aria-controls="onde-fica" aria-selected="false">Onde fica</a>
+
+    </div>
+  </nav>
+  <div class="tab-content" id="nav-tabContent">
+    <router-outlet></router-outlet>
+  </div>
+  </div>
+
 </div>
