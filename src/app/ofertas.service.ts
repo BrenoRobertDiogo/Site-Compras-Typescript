@@ -7,6 +7,7 @@ import 'rxjs/add/operator/toPromise';
 
 @Injectable()
 export class OfertasService {
+    
     private api: string = 'http://localhost:3000/ofertas';
     constructor(private http: Http) { }
 
@@ -75,5 +76,11 @@ export class OfertasService {
         .toPromise()
         .then((resposta: any) => resposta.json())
     }
+
+    getOfertasPorId(id: number): Promise<Oferta> {
+        return this.http.get(this.api+`?id=${id}`)
+        .toPromise()
+        .then((resposta: any) => {return resposta.json().shift()})
+      }
 
 }
