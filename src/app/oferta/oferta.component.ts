@@ -27,7 +27,7 @@ export class OfertaComponent implements OnInit, OnDestroy {
     this.ofertasService.getOfertasPorId(id).then((oferta: Oferta) => {
       this.oferta = oferta;
     });
-    this.route.params.subscribe(
+    /* this.route.params.subscribe(
       (parametro: any) => {
         console.log(parametro);
       },
@@ -57,10 +57,10 @@ export class OfertaComponent implements OnInit, OnDestroy {
       (resultado: any) => console.log(resultado), // NEXT
       (error: string) => console.log(error), // ERRO
       () => console.log("Stream de eventos finalizada") // Complete
-    );
-  } 
+    );*/
+  }  
   ngOnDestroy(): void {
-    this.tempoObservableSubscription.unsubscribe();
-    this.tempoObservableTesteSubscription.unsubscribe();
+    /* this.tempoObservableSubscription.unsubscribe();
+    this.tempoObservableTesteSubscription.unsubscribe(); */
   }
 }
