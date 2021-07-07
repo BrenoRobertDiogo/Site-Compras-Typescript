@@ -3,7 +3,13 @@
 
   
   <div class="oferta" *ngIf="oferta !== undefined">
-
+    <div class="row">
+      <div class="col">
+        <a [routerLink]="['/Oferta', 1]">1</a>
+        <a [routerLink]="['/Oferta', 3]">3</a>
+        <a [routerLink]="['/Oferta', 6]">6</a>
+      </div>
+    </div>
     <div class="row mt-5 mb-5">
       <div class="col">
         <h4>{{ oferta.descricao_oferta }}</h4>
