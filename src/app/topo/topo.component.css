@@ -26,4 +26,14 @@
 #ulPesquisa {
     position: absolute;
     min-width: 33%;
+    z-index: 999;
+}
+
+.transparencia {
+    opacity: 0.95;
+    background-color: white;
+}
+
+.transparencia:hover {
+    background-color: rgb(207, 207, 207);
 }

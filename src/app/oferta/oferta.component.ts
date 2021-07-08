@@ -1,5 +1,5 @@
 import { Component, OnInit, OnDestroy } from "@angular/core";
-import { ActivatedRoute } from "@angular/router";
+import { ActivatedRoute, Params } from "@angular/router";
 import { OfertasService } from "app/ofertas.service";
 import { Oferta } from "app/shared/oferta.model";
 import { Observable } from "rxjs/Observable";
@@ -14,19 +14,24 @@ import { Observer, Subscription } from "rxjs";
 })
 export class OfertaComponent implements OnInit, OnDestroy {
   public oferta: Oferta;
-  private tempoObservableSubscription: Subscription 
-  private tempoObservableTesteSubscription: Subscription 
+  private tempoObservableSubscription: Subscription;
+  private tempoObservableTesteSubscription: Subscription;
   constructor(
     private route: ActivatedRoute,
     private ofertasService: OfertasService
   ) {}
-  
 
   ngOnInit() {
-    let id: any = this.route.snapshot.params["id"];
-    this.ofertasService.getOfertasPorId(id).then((oferta: Oferta) => {
-      this.oferta = oferta;
+    // let id: any = this.route.snapshot.params["id"];
+
+    this.route.params.subscribe((parametros: Params) => {
+      this.ofertasService.getOfertasPorId(parametros.id)
+      .then((oferta: Oferta) => {
+        this.oferta = oferta;
+      });
+      ;
     });
+
     /* this.route.params.subscribe(
       (parametro: any) => {
         console.log(parametro);
@@ -58,7 +63,7 @@ export class OfertaComponent implements OnInit, OnDestroy {
       (error: string) => console.log(error), // ERRO
       () => console.log("Stream de eventos finalizada") // Complete
     );*/
-  }  
+  }
   ngOnDestroy(): void {
     /* this.tempoObservableSubscription.unsubscribe();
     this.tempoObservableTesteSubscription.unsubscribe(); */
