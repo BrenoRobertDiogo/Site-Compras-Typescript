@@ -187,118 +187,6 @@
   ],
   "pedidos": [
     {
-      "endereco": "adsasdads",
-      "numero": "dsaadsads",
-      "complemento": "asasdads",
-      "formaPagamento": "dinheiro",
-      "id": 1
-    },
-    {
-      "endereco": "adsasdads",
-      "numero": "dsaadsads",
-      "complemento": "asasdads",
-      "formaPagamento": "dinheiro",
-      "id": 2
-    },
-    {
-      "endereco": "ffff",
-      "numero": "vv",
-      "complemento": "v",
-      "formaPagamento": "dinheiro",
-      "id": 3
-    },
-    {
-      "endereco": "dddd",
-      "numero": "dd",
-      "complemento": "dd",
-      "formaPagamento": "dinheiro",
-      "id": 4
-    },
-    {
-      "endereco": "dssd",
-      "numero": "d",
-      "complemento": "d",
-      "formaPagamento": "dinheiro",
-      "id": 5
-    },
-    {
-      "endereco": "mmmm",
-      "numero": "mmm",
-      "complemento": "mmmm",
-      "formaPagamento": "dinheiro",
-      "id": 6
-    },
-    {
-      "endereco": "gggg",
-      "numero": "gg",
-      "complemento": "g",
-      "formaPagamento": "debito",
-      "id": 7
-    },
-    {
-      "endereco": "gggd",
-      "numero": "gd",
-      "complemento": "gg",
-      "formaPagamento": "debito",
-      "id": 8
-    },
-    {
-      "endereco": "cccc",
-      "numero": "c",
-      "complemento": "c",
-      "formaPagamento": "dinheiro",
-      "id": 9
-    },
-    {
-      "endereco": "dddd",
-      "numero": "d",
-      "complemento": "d",
-      "formaPagamento": "dinheiro",
-      "id": 10
-    },
-    {
-      "endereco": "sdsd",
-      "numero": "sdsd",
-      "complemento": "sd",
-      "formaPagamento": "dinheiro",
-      "id": 11
-    },
-    {
-      "endereco": "dddd",
-      "numero": "d",
-      "complemento": "d",
-      "formaPagamento": "dinheiro",
-      "id": 12
-    },
-    {
-      "endereco": "dddd",
-      "numero": "dd",
-      "complemento": "d",
-      "formaPagamento": "dinheiro",
-      "id": 13
-    },
-    {
-      "endereco": "dsadad",
-      "numero": "asd",
-      "complemento": "asd",
-      "formaPagamento": "dinheiro",
-      "id": 14
-    },
-    {
-      "endereco": "sdad",
-      "numero": "dsas",
-      "complemento": "dsas",
-      "formaPagamento": "dinheiro",
-      "id": 15
-    },
-    {
-      "endereco": "sdad",
-      "numero": "dsas",
-      "complemento": "dsas",
-      "formaPagamento": "dinheiro",
-      "id": 16
-    },
-    {
       "endereco": "Rua das cotovias",
       "numero": "95",
       "complemento": "Bloco 3 AP 204",
@@ -306,18 +194,11 @@
       "id": 17
     },
     {
-      "endereco": "Rua das cotovias",
-      "numero": "95",
-      "complemento": "Bloco 3 AP 204",
+      "endereco": "Rua inexistente",
+      "numero": "2",
+      "complemento": "Perto do asino da esperança",
       "formaPagamento": "dinheiro",
       "id": 18
-    },
-    {
-      "endereco": "",
-      "numero": "",
-      "complemento": "",
-      "formaPagamento": "",
-      "id": 19
     }
   ]
 }

@@ -1,43 +1,59 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
-import { NgForm } from '@angular/forms';
+import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { OrdemCompraService } from '../ordem-compra.service'
 import { Pedido } from '../shared/pedido.model'
+import CarrinhoService from 'carrinho.service';
+// import { table } from 'console';
 
 @Component({
   selector: 'app-ordem-compra',
   templateUrl: './ordem-compra.component.html',
   styleUrls: ['./ordem-compra.component.css'],
-  providers: [ OrdemCompraService ]
+  providers: [OrdemCompraService , CarrinhoService ]
 })
 export class OrdemCompraComponent implements OnInit {
-  @ViewChild('formulario')
-  public formulario: NgForm;
-
   public idPedidoCompra: number
 
-  constructor(private ordemCompraService: OrdemCompraService) { }
+  public formulario: FormGroup = new FormGroup(
+    {
+      'endereco': new FormControl(null, [Validators.required, Validators.minLength(3), Validators.maxLength(120)]), // parametros: valor inicial, array validador, array validador assincrono
+      'numero': new FormControl(null, [Validators.required, Validators.minLength(1)]),
+      'complemento': new FormControl(null, []),
+      'formaPagamento': new FormControl('', [Validators.required])
+
+    });
+
+  constructor(
+    private ordemCompraService: OrdemCompraService,
+    private carrinhoService: CarrinhoService
+    ) { }
 
   ngOnInit() {
-    
+     console.log( this.carrinhoService.exibitItens())
   }
 
-  /**
-   * confirmarCompra
-   */
   public confirmarCompra(): void {
-    console.log(this.formulario.value);
-    let form = this.formulario.value
-    let pedido: Pedido = new Pedido(form.endereco, form.numero, form.complemento, form.formaPagamento)
+    // console.log(this.formulario);
+    let form: any = this.formulario.value
+    if (this.formulario.status != 'INVALID') {
+      let pedido: Pedido = new Pedido(
+        form.endereco,
+        form.numero,
+        form.complemento,
+        form.formaPagamento
 
-    this.ordemCompraService.efetivarCompra(pedido)
-    .subscribe((idPedido: number) => {
-      console.log('Pedido cadastrado com sucesso, idPedido: '+idPedido);
-      this.idPedidoCompra = idPedido
-      
-    })
-    
+      )
+      // console.log(pedido);
+      this.ordemCompraService.efetivarCompra(pedido)
+        .subscribe((idPedido: number) => {
+          this.idPedidoCompra = idPedido
+        })
+
+
+    } else {
+
+    }
+    // console.log(this.idPedidoCompra);
+
   }
-
-
-
 }

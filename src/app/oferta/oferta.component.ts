@@ -5,12 +5,13 @@ import { Oferta } from "app/shared/oferta.model";
 import { Observable } from "rxjs/Observable";
 import "rxjs";
 import { Observer, Subscription } from "rxjs";
+import CarrinhoService from "carrinho.service";
 
 @Component({
   selector: "app-oferta",
   templateUrl: "./oferta.component.html",
   styleUrls: ["./oferta.component.css"],
-  providers: [OfertasService],
+  providers: [OfertasService, CarrinhoService],
 })
 export class OfertaComponent implements OnInit, OnDestroy {
   public oferta: Oferta;
@@ -18,19 +19,23 @@ export class OfertaComponent implements OnInit, OnDestroy {
   private tempoObservableTesteSubscription: Subscription;
   constructor(
     private route: ActivatedRoute,
-    private ofertasService: OfertasService
+    private ofertasService: OfertasService,
+    private carrinhoService: CarrinhoService
   ) {}
 
   ngOnInit() {
     // let id: any = this.route.snapshot.params["id"];
+    console.log(this.carrinhoService.exibitItens());
+     
 
     this.route.params.subscribe((parametros: Params) => {
       this.ofertasService.getOfertasPorId(parametros.id)
       .then((oferta: Oferta) => {
         this.oferta = oferta;
       });
-      ;
     });
+
+
 
     /* this.route.params.subscribe(
       (parametro: any) => {
@@ -68,4 +73,12 @@ export class OfertaComponent implements OnInit, OnDestroy {
     /* this.tempoObservableSubscription.unsubscribe();
     this.tempoObservableTesteSubscription.unsubscribe(); */
   }
+
+  /**
+   * adicionarItemCarrinho
+   */
+  public adicionarItemCarrinho() {
+    this.carrinhoService.incluirItem(this.oferta)
+  }
+
 }
