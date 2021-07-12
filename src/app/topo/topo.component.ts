@@ -10,6 +10,8 @@ import { Observable, Subject } from "rxjs";
   providers: [OfertasService],
 })
 export class TopoComponent implements OnInit {
+  public idPedidoCompra: number
+
   public ofertas: Observable<Oferta[]>;
   public ofertasArray: Array<Oferta>;
 
