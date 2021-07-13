@@ -199,6 +199,35 @@
       "complemento": "Perto do asino da esperança",
       "formaPagamento": "dinheiro",
       "id": 18
+    },
+    {
+      "endereco": "Rua das cotovias",
+      "numero": "95",
+      "complemento": "Perto do Jaime",
+      "formaPagamento": "dinheiro",
+      "itens": [
+        {
+          "id": 4,
+          "img": {
+            "url": "/assets/ofertas/4/img1.jpg"
+          },
+          "titulo": "Estância das águas",
+          "descricaoOferta": "Diversão garantida com piscinas, trilhas e muito mais.",
+          "valor": 31.9,
+          "quantidade": 3
+        },
+        {
+          "id": 5,
+          "img": {
+            "url": "/assets/ofertas/5/img1.jpg"
+          },
+          "titulo": "Kart",
+          "descricaoOferta": "Bateria de Kart de 30 minutos.",
+          "valor": 54.9,
+          "quantidade": 2
+        }
+      ],
+      "id": 19
     }
   ]
 }
