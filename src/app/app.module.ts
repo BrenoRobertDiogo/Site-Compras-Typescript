@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { LOCALE_ID, NgModule } from '@angular/core';
 // import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 
@@ -20,6 +20,8 @@ import { DescricaoReduzida } from './util/descricao-reduzida.pipe';
 import { OrdemCompraComponent } from './ordem-compra/ordem-compra.component';
 import { HttpClientModule } from '@angular/common/http';
 import { OrdemCompraSucessoComponent } from './ordem-compra-sucesso/ordem-compra-sucesso.component';
+import { CarrinhoService } from 'carrinho.service';
+import { CarrinhoVazioComponent } from './carrinho-vazio/carrinho-vazio.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +36,8 @@ import { OrdemCompraSucessoComponent } from './ordem-compra-sucesso/ordem-compra
     OndeFicaComponent,
     DescricaoReduzida,
     OrdemCompraComponent,
-    OrdemCompraSucessoComponent
+    OrdemCompraSucessoComponent,
+    CarrinhoVazioComponent
   ],
   imports: [
     BrowserModule,
@@ -44,7 +47,10 @@ import { OrdemCompraSucessoComponent } from './ordem-compra-sucesso/ordem-compra
     // FormsModule
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [
+    CarrinhoService,
+    { provide: LOCALE_ID, useValue: 'pt-Br' }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
