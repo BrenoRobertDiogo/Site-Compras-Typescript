@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { OrdemCompraService } from '../ordem-compra.service'
 import { Pedido } from '../shared/pedido.model'
-import {CarrinhoService} from 'carrinho.service';
+import { CarrinhoService } from 'carrinho.service';
 import { ItemCarrinho } from 'app/shared/item-carrinho.model';
 // import { table } from 'console';
 
@@ -10,7 +10,7 @@ import { ItemCarrinho } from 'app/shared/item-carrinho.model';
   selector: 'app-ordem-compra',
   templateUrl: './ordem-compra.component.html',
   styleUrls: ['./ordem-compra.component.css'],
-  providers: [OrdemCompraService ]
+  providers: [OrdemCompraService]
 })
 export class OrdemCompraComponent implements OnInit {
   public itensCarrinho: ItemCarrinho[] = []
@@ -28,12 +28,12 @@ export class OrdemCompraComponent implements OnInit {
   constructor(
     private ordemCompraService: OrdemCompraService,
     private carrinhoService: CarrinhoService
-    ) { }
+  ) { }
 
   ngOnInit() {
-     this.itensCarrinho = this.carrinhoService.exibirItens()
-     console.log(this.itensCarrinho );
-     
+    this.itensCarrinho = this.carrinhoService.exibirItens()
+    console.log(this.itensCarrinho);
+
   }
 
   public confirmarCompra(): void {
@@ -49,7 +49,7 @@ export class OrdemCompraComponent implements OnInit {
           form.complemento,
           form.formaPagamento,
           this.carrinhoService.exibirItens()
-  
+
         )
         // console.log(pedido);
         this.ordemCompraService.efetivarCompra(pedido)
@@ -57,14 +57,12 @@ export class OrdemCompraComponent implements OnInit {
             this.idPedidoCompra = idPedido
           })
       }
-        
-      }
+
+    }
     // console.log(this.idPedidoCompra);
 
   }
 
-  /**
-   * adicionar(item: ItemCarrinho   */
   public adicionar(item: ItemCarrinho) {
     this.carrinhoService.adicionarQuantidade(item)
   }

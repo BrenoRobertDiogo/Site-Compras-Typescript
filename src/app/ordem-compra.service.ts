@@ -11,7 +11,6 @@ export class OrdemCompraService {
 
     constructor(private http: HttpClient) { }
 
-
     public efetivarCompra(pedido: Pedido): Observable<number> {
         const httpOptions = { headers: new HttpHeaders({ 'Content-Type': 'application/json', Authorization: 'my-auth-token' }) };
 
